@@ -5,59 +5,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor-Ship</title>
-   
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mentorShip_style.css">
 
     <style>
-        button {   
-            background-color: #FF4F4F;   
-            width: 100%;  
-            color: black;   
-            padding: 15px;   
-            margin: 10px 0px;   
-            border: none;   
-            cursor: pointer;   
-        }   
+        button {
+            background-color: #FF4F4F;
+            width: 100%;
+            color: black;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
 
-        input[type=text], input[type=password] {   
-            width: 100%;   
-            margin: 8px 0;  
-            padding: 12px 20px;   
-            display: inline-block;   
-            border: 2px solid #51AD2A;   
-            box-sizing: border-box;   
-        }  
+        input[type=text], input[type=password] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #51AD2A;
+            box-sizing: border-box;
+        }
 
         #newState { /*, #iExpirationDate */
             font-size: 15px;
-            margin: 8px 0;  
-            padding: 12px 20px;   
+            margin: 8px 0;
+            padding: 12px 20px;
             display: inline-block;
-            border: 2px solid #51AD2A;   
-            box-sizing: border-box; 
+            border: 2px solid #51AD2A;
+            box-sizing: border-box;
             float: left;
             clear: left;
         }
     </style>
+    <script type="text/javascript">
+        function mentorOrMentee() {
+            type = document.getElementById('mentorMenteeId').value;
 
+            //insert the rest of the form according to the user's selection
+            if (type === "Mentor") {
+                document.getElementById('changeId').innerHTML = '<label style = "margin-top: 10px;"><strong>Major:</strong></label>' +
+                    '<input type="text" placeholder="Enter your major of study" id="majorId" required>' +
+
+                    '<label><strong>Field: </strong></label>' +
+                    '<input type="text" placeholder="Enter your field of employment" id="fieldId" required>' +
+
+                    '<label><strong>Hobbies: </strong></label>' +
+                    '<input type="text" placeholder="Enter a hobby (only one is required)" id="hobbyOneId" required>' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyTwoId">' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyThreeId">';
+            }
+
+            else if (type === "Mentee") {
+                document.getElementById('changeId').innerHTML = '<label style = "margin-top: 10px;"><strong>Major:</strong></label>' +
+                    '<input type="text" placeholder="Enter your major of study" id="majorId" required>' +
+
+                    '<label><strong>Area of Interest: </strong></label>' +
+                    '<input type="text" placeholder="Enter your field of interest" id="interestId" required>' +
+
+                    '<label><strong>Hobbies: </strong></label>' +
+                    '<input type="text" placeholder="Enter a hobby (only one is required)" id="hobbyOneId" required>' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyTwoId">' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyThreeId">';
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="header">
         <img style="display: inline-block" src="mentor_shiplogo.png" alt="Mentor-Ship Logo">
-        <h1>Account Creation</h1>  
+        <h1>Account Creation</h1>
 
-        <form>  
-            <div class="userPass">   
-                <label><strong>Username: </strong></label>   
-                <input type="text" placeholder="Enter Username" id="new_username" required>
-                <label><strong>Password: </strong></label>   
-                <input type="password" placeholder="Enter Password" id="new_password" required>
-                <label><strong>City: </strong></label>   
-                <input type="text" placeholder="Enter Username" id="username" required>
-                <label><strong>State: </strong></label>   
-                <select id="newState">
+        <form>
+            <div class="userPass">
+                <label><strong>Username: </strong></label>
+                <input type="text" placeholder="Enter Username" id="usernameId" required>
+
+                <label><strong>Password: </strong></label>
+                <input type="text" placeholder="Enter Password" id="passwordId" required>
+
+                <label><strong>Name: </strong></label>
+                <input type="text" placeholder="Enter your name" id="nameId" required>
+
+                <label><strong>Email Address: </strong></label>
+                <input type="text" placeholder="Enter your email address" id="emailId" required>
+
+                <label><strong>Age: </strong></label>
+                <input type="text" placeholder="Enter age in years" id="ageId" required>
+
+                <label><strong>City: </strong></label>
+                <input type="text" placeholder="Enter City" id="cityId" required>
+
+
+                <label><strong>State: </strong></label>
+                <select id="stateId">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -109,10 +153,23 @@
                     <option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
-                </select>	
-                <button type="submit"><strong>Create New Account</strong></button>           
-            </div> 
-            </form>
-    </div> 
+                </select>
+                <br />
+                <label><strong>Are you a mentor or a mentee?</strong></label>
+                <select id="mentorMenteeId" onchange="mentorOrMentee()">
+                    <option value="Blank"</option>
+                    <option value="Mentor">Mentor</option>
+                    <option value="Mentee">Mentee</option>
+                </select>
+
+                <div id="changeId"></div>
+
+
+
+
+                <button type="submit"><strong>Create New Account</strong></button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
