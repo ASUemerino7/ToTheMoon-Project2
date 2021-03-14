@@ -42,6 +42,33 @@
         }
     </style>
     <script type="text/javascript">
+
+        //function for putting all form values into variables
+        function submitForm() {
+            console.log("Form Submitted");
+            var username = document.getElementById('usernameId').value;
+            var password = document.getElementById('passwordId').value;
+            var name = document.getElementById('nameId').value;
+            var email = document.getElementById('emailId').value;
+            var age = document.getElementById('ageId').value;
+            var location = document.getElementById('cityId').value + ", " + document.getElementById('stateId').value;
+            var role = document.getElementById('mentorMenteeId').value;
+            var major = document.getElementById('majorId').value;
+            var hobby1 = document.getElementById('hobbyOneId').value;
+            var hobby2 = document.getElementById('hobbyTwoId').value;
+            var hobby3 = document.getElementById('hobbyThreeId').value;
+
+
+            if (role === 'Mentor') {
+                var fieldOfEmployment = document.getElementById('fieldId').value;
+            }
+
+            else if (role === 'Mentee') {
+                var fieldOfEmployment = document.getElementById('interestId').value;
+            }
+        }
+
+        //function for changing the input form based on whether the user is a mentor or mentee
         function mentorOrMentee() {
             type = document.getElementById('mentorMenteeId').value;
 
@@ -79,7 +106,7 @@
         <img style="display: inline-block" src="mentor_shiplogo.png" alt="Mentor-Ship Logo">
         <h1>Account Creation</h1>
 
-        <form>
+        <form id="inputForm" onsubmit="submitForm()">
             <div class="userPass">
                 <label><strong>Username: </strong></label>
                 <input type="text" placeholder="Enter Username" id="usernameId" required>
@@ -157,7 +184,7 @@
                 <br />
                 <label><strong>Are you a mentor or a mentee?</strong></label>
                 <select id="mentorMenteeId" onchange="mentorOrMentee()">
-                    <option value="Blank"</option>
+                    <option value="Blank"></option>
                     <option value="Mentor">Mentor</option>
                     <option value="Mentee">Mentee</option>
                 </select>
