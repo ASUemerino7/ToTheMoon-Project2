@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor-Ship Edit Account</title>
+
+    <style>
+        h1 {
+            font-family:        'Lucida Sans Unicode', Elephant;
+            color:              #6894cc;
+        }
+
+        label {
+            color:              #ec9d9d;
+        }
+
+        body {
+            background-color:   #d2d4bc;
+        }
+
+        button {
+            background-color:   #6894cc;
+            width:              100%;
+            color:              black;
+            padding:            15px;
+            margin:             10px 0px;
+            border:             none;
+            cursor:             pointer;
+        }
+
+        input[type=text], input[type=password] {
+            width:              100%;
+            margin:             8px 0;
+            padding:            12px 20px;
+            display:            inline-block;
+            border:             2px solid #b79ab0;
+            box-sizing:         border-box;
+        }
+    </style>
+    <script type="text/javascript">
+
+        //function for putting all form values into variables
+        function submitForm() {
+            console.log("Form Submitted");
+            var username = document.getElementById('usernameId').value;
+            var password = document.getElementById('passwordId').value;
+            var name = document.getElementById('nameId').value;
+            var email = document.getElementById('emailId').value;
+            var age = document.getElementById('ageId').value;
+            var location = document.getElementById('cityId').value + ", " + document.getElementById('stateId').value;
+            var role = document.getElementById('mentorMenteeId').value;
+            var major = document.getElementById('majorId').value;
+            var hobby1 = document.getElementById('hobbyOneId').value;
+            var hobby2 = document.getElementById('hobbyTwoId').value;
+            var hobby3 = document.getElementById('hobbyThreeId').value;
+
+
+            if (role === 'Mentor') {
+                var fieldOfEmployment = document.getElementById('fieldId').value;
+            }
+
+            else if (role === 'Mentee') {
+                var fieldOfEmployment = document.getElementById('interestId').value;
+            }
+        }
+
+        //function for changing the input form based on whether the user is a mentor or mentee
+        function mentorOrMentee() {
+            type = document.getElementById('mentorMenteeId').value;
+
+            //insert the rest of the form according to the user's selection
+            if (type === "Mentor") {
+                document.getElementById('changeId').innerHTML = '<label style = "margin-top: 10px;"><strong>Major:</strong></label>' +
+                    '<input type="text" placeholder="Enter your major of study" id="majorId" required>' +
+
+                    '<label><strong>Field: </strong></label>' +
+                    '<input type="text" placeholder="Enter your field of employment" id="fieldId" required>' +
+
+                    '<label><strong>Hobbies: </strong></label>' +
+                    '<input type="text" placeholder="Enter a hobby (only one is required)" id="hobbyOneId" required>' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyTwoId">' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyThreeId">';
+            }
+
+            else if (type === "Mentee") {
+                document.getElementById('changeId').innerHTML = '<label style = "margin-top: 10px;"><strong>Major:</strong></label>' +
+                    '<input type="text" placeholder="Enter your major of study" id="majorId" required>' +
+
+                    '<label><strong>Area of Interest: </strong></label>' +
+                    '<input type="text" placeholder="Enter your field of interest" id="interestId" required>' +
+
+                    '<label><strong>Hobbies: </strong></label>' +
+                    '<input type="text" placeholder="Enter a hobby (only one is required)" id="hobbyOneId" required>' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyTwoId">' +
+                    '<input type="text" placeholder="Enter a hobby" id="hobbyThreeId">';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img style="display: inline-block" src="mentor_shiplogo.png" alt="Mentor-Ship Logo">
+        <h1>Edit Account</h1>
+
+        <form id="inputForm" onsubmit="submitForm()">
+            <div class="userPass">
+                <label><strong>Username: </strong></label>
+                <input type="text" placeholder="Enter Username" id="usernameId" required>
+
+                <label><strong>Password: </strong></label>
+                <input type="text" placeholder="Enter Password" id="passwordId" required>
+
+                <label><strong>Name: </strong></label>
+                <input type="text" placeholder="Enter your name" id="nameId" required>
+
+                <label><strong>Email Address: </strong></label>
+                <input type="text" placeholder="Enter your email address" id="emailId" required>
+
+                <label><strong>Age: </strong></label>
+                <input type="text" placeholder="Enter age in years" id="ageId" required>
+
+                <label><strong>City: </strong></label>
+                <input type="text" placeholder="Enter City" id="cityId" required>
+
+
+                <label><strong>State: </strong></label>
+                <select id="stateId">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <br />
+                <label><strong>Are you a mentor or a mentee?</strong></label>
+                <select id="mentorMenteeId" onchange="mentorOrMentee()">
+                    <option value="Blank"></option>
+                    <option value="Mentor">Mentor</option>
+                    <option value="Mentee">Mentee</option>
+                </select>
+
+                <div id="changeId"></div>
+
+                <button type="submit"><strong>Save Changes</strong></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
