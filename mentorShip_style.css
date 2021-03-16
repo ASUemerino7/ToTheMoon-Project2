@@ -1,11 +1,12 @@
 
 body {
     font-family: sans-serif;
-    background-color: cornsilk;
+    background-color: #d2d4bc;
 }
 
 h1 {
     font-family: 'Pacifico', Elephant;
+    color: #6894cc;
 }
 
 h3 {
@@ -58,6 +59,7 @@ a {
 label {
     float: left;
     clear: left;
+    color: #ec9d9d;
 }
 
 input {
@@ -84,7 +86,7 @@ h3 {
 }
 
 button {
-    background-color: #FF4F4F;
+    background-color: #6894cc;
     width: 100%;
     color: black;
     padding: 15px;

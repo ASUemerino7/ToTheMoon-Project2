@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myPantry</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mentorShip_style.css">
+    
+    <style>
+        a.linkButton {
+            text-align: center;
+            -webkit-appearance: button;
+            background-color: #6894cc;
+            width: 100%;
+            color: white;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+  /*
+
+        button {   
+             
+            width: 100%;  
+            color: black;   
+            padding: 15px;   
+            margin: 10px 0px;   
+            border: none;   
+            cursor: pointer;   
+        }   
+
+        input[type=text], input[type=password] {   
+            width: 100%;   
+            margin: 8px 0;  
+            padding: 12px 20px;   
+            display: inline-block;   
+            border: 2px solid #51AD2A;   
+            box-sizing: border-box;   
+        }  
+        
+        #diflink {
+            color: black;
+        }
+       */
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img style="display: inline-block" src="./mentor_shiplogo.png" alt="Mentor-Ship Logo">
+        <br />
+        <h1 style="display: inline-block">Log In</h1>
+    </div>
+
+    <form>
+        <div class="userPass">
+            <label><strong>Username: </strong></label>
+            <input type="text" placeholder="Enter Username" name="username" id="username" required></input>
+            <label><strong>Password: </strong></label>
+            <input type="text" placeholder="Enter Password" name="password" id="password" required></input>
+            <a class="linkButton"id="diflink" href="home_page.html"><strong>Login</strong></a>
+
+        </div>
+    </form>
+    <a class="linkButton" id="createLinkId" href="create_account.html"><strong>Create New Account</strong></a>
+</body>
+</html>

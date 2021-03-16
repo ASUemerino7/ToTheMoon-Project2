@@ -5,41 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor-Ship</title>
+    <link rel="stylesheet" href="mentorShip_style.css">
 
     <style>
-     h1 {
-            font-family:        'Lucida Sans Unicode', Elephant;
-            color:              #6894cc;
+        h1 {
+            font-family: 'Lucida Sans Unicode', Elephant;
+            color: #6894cc;
         }
 
         label {
-            color:              #ec9d9d;
+            color: #ec9d9d;
         }
 
         body {
-            background-color:   #d2d4bc;
+            background-color: #d2d4bc;
         }
 
         button {
-            background-color:   #6894cc;
-            width:              100%;
-            color:              black;
-            padding:            15px;
-            margin:             10px 0px;
-            border:             none;
-            cursor:             pointer;
+            background-color: #6894cc;
+            width: 100%;
+            color: black;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
         }
 
         input[type=text], input[type=password] {
-            width:              100%;
-            margin:             8px 0;
-            padding:            12px 20px;
-            display:            inline-block;
-            border:             2px solid #b79ab0;
-            box-sizing:         border-box;
+            width: 75%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #b79ab0;
+            box-sizing: border-box;
+        }
+        select {
+            float: left;
+            clear: left;
         }
     </style>
-    
+
     <script type="text/javascript">
 
         //function for putting all form values into variables
@@ -65,6 +70,9 @@
             else if (role === 'Mentee') {
                 var fieldOfEmployment = document.getElementById('interestId').value;
             }
+
+            alert("Account created!");
+            window.location.replace("login_page.html");
         }
 
         //function for changing the input form based on whether the user is a mentor or mentee
@@ -190,7 +198,7 @@
 
                 <div id="changeId"></div>
 
-                <button type="submit"><strong>Create New Account</strong></button>
+                <button type="submit" onclick="submitForm()"><strong>Create New Account</strong></button>
             </div>
         </form>
     </div>

@@ -2,57 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myPantry</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Oswald&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="myPantry_style.css">
-    
+    <title>Welcome Page</title>
+
     <style>
-  
-
-        button {   
-            background-color: #FF4F4F;   
-            width: 100%;  
-            color: black;   
-            padding: 15px;   
-            margin: 10px 0px;   
-            border: none;   
-            cursor: pointer;   
-        }   
-
-        input[type=text], input[type=password] {   
-            width: 100%;   
-            margin: 8px 0;  
-            padding: 12px 20px;   
-            display: inline-block;   
-            border: 2px solid #51AD2A;   
-            box-sizing: border-box;   
-        }  
-        
-        #diflink {
-            color: black;
+        body {
+            background-color: #d2d4bc;
         }
-       
 
+        .pageSubheader {
+            text-align: center;
+        }
+
+        .pageSubheaderII {
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Lucida Sans Unicode', Elephant;
+        }
+
+        #signUpId {
+            color: #ec9d9d;
+        }
+
+        #imageId {
+            text-align: center;
+        }
+
+        input[type=text], input[type=password] {
+            width: 25%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #b79ab0;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: white;
+        }
+
+        button {
+            background-color: #6894cc;
+            width: 25%;
+            color: white;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img style="display: inline-block" src="./myPantry_logo.png" alt="myPantryLogo">
-        <h1 style="display: inline-block">Log In</h1>  
-    </div>  
-    
-    <form>  
-        <div class="userPass">   
-            <label><strong>Username: </strong></label>   
-            <input type="text" placeholder="Enter Username" name="username" id="username" required></input>
-            <label><strong>Password: </strong></label>   
-            <input type="password" placeholder="Enter Password" name="password" id="password" required></input>  
-            <button type="button"><a id="diflink" href="home_page.html"><strong>Login</strong></a></button>    
-            <button type="button" class="cancelbtn"><a id="diflink" href=""><strong>Cancel</strong></a></button>
-            <button type="button" class="createNewAccount"><a id="diflink" href="create_new_account.html"><strong>Create New Account</strong></a></button>      
-        </div>   
-    </form>  
+    <div id="imageId">
+        <img src="./mentor_shiplogo.png" alt="Mentor-Ship Logo">
+    </div>
+
+    <div class="page_subheader">
+        <form id="loginFormId">
+            <div class="pageSubheader">
+                <label id="loginLabelId">
+                    <span id="loginSpanId"></span>
+                    <input id="loginInputId" type="text" placeholder="Username or Email" required>
+                </label>
+            </div>
+
+            <div class="pageSubheader">
+                <label id="passwordLabelId">
+                    <span id="passwordSpanId"></span>
+                    <input id="passwordInputId" placeholder="Password" type="password" required>
+                </label>
+            </div>
+
+            <div class="pageSubheader">
+                <button id=loginbuttonId>Log In</button>
+            </div>
+        </form>
+    </div>
+
+    <section class="pageSubheaderII">
+        <div id="signUpId">Don't have an Account? <a href="./create_account.html"> <span> Sign Up!</span></a></div>
+    </section>
+
 </body>
 </html>
