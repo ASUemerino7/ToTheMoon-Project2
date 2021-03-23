@@ -53,30 +53,7 @@
     <div class="header">
         <img style="display: inline-block" src="./mentor_shiplogo.png" alt="Mentor-Ship Logo">
         <p id="dbtest">Database:</p>
-        <script type="text/javascript">
-            function loadMain() {
-  var sqlStmt = "SELECT * FROM Users";
-  var whereClause1 = "WHERE age = 27";
-  var sqlStmt1 = sqlStmt + whereClause1;
-  //sqlStmt = sqlStmt + whereClause;
-  MySql.Execute( //execute allows any data manipulation (update, delete, insert)
-    "107.180.1.16", 
-    "13redo",
-    "redo13",
-    "CIS440",
-    sqlStmt1, //sql statement
-    function(data) { //callback function - argument in function is to get access to the data
-      console.log(sqlStmt1)
-                     
-      for (var i=0; i<data.length; i++) {                    
-        document.getElementById("prodFav").innerHTML += data[i].userID + "<br><br>";
-        document.getElementById("descFav").innerHTML += data[i].username + "<br><br>";          
-        document.getElementById("costFav").innerHTML += "$" + data[i].password + "<br><br>";                     
-      }
-  });
-};
-
-        </script>
+         
         <button id= "dbbutton" onclick="loadMain()"> Database Connection</button>
         <!-- onclick function was previously loadMain() to test db connection but I removed that to onload to see if it would work at all -->
         <br />
@@ -112,8 +89,37 @@
         </div>
     </form>
     <a class="linkButton" id="createLinkId" href="create_account.html"><strong>Create New Account</strong></a>
-    <script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
+    
+</body>
+
+<script type="text/javascript">
+            
+    function loadMain() {
+          var sqlStmt = "SELECT * FROM Users ";
+          var whereClause1 = "WHERE age = 27";
+          var sqlStmt1 = sqlStmt + whereClause1;
+          //sqlStmt = sqlStmt + whereClause;
+          MySql.Execute( //execute allows any data manipulation (update, delete, insert)
+            "107.180.1.16", 
+            "13redo",
+            "redo13",
+            "13redo",
+            sqlStmt1, //sql statement
+            function(data) { //callback function - argument in function is to get access to the data
+              console.log(sqlStmt1)
+              console.log(data.Result)               
+              for (var i=0; i<data.Result.length; i++) {                    
+        document.getElementById("prodFav").innerHTML += data.Result[i].userID + "<br><br>";
+        document.getElementById("descFav").innerHTML += data.Result[i].username + "<br><br>";          
+        document.getElementById("costFav").innerHTML += "$" + data.Result[i].password + "<br><br>";
+                 
+              }
+          });
+            // document.getElementByID('dbbutton').disable = true;
+        };
+
+        </script> 
+        <script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
  <!-- <script type="text/javascript" src="dbConnectTest.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
-</body>
 </html>
