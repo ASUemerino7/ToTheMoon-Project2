@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Style Sheet for Home Page -->
+    <style>
+        .center
+        {
+            margin:             auto;
+            display:            table;
+        }
+
+        .resultsTable
+        {
+            font-family:        'Lucida Sans Unicode', Elephant;
+            font-weight:        bold;
+            border-collapse:    collapse;
+        }
+
+        .resultsTable th 
+        {
+            border:             1px solid #ec9d9d;
+            padding-left:       2em;
+            padding-right:      2em;
+            color:              #6894cc
+        }
+
+        h1
+        {
+            font-family:        'Lucida Sans Unicode', Elephant;
+            color:              #6894cc
+        }
+
+        body
+        {
+            background-color:  #d2d4bc;
+            font-size:          20px;
+        }
+
+        hr
+        {
+            width:              85%;
+            color:              #b79ab0
+        }
+
+        button
+        {
+            background-color: #6894cc;
+            width:              6.0em;
+            color:            white;
+            padding:            12px;
+            margin:             5px;
+            border:             none;
+            cursor:             pointer;
+            font-size:          0.9em;
+        }
+
+        #buttonDivId
+        {
+            float:              right;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Goes Here -->
+    <img src="./mentor_shiplogo.png" alt="Mentor Ship Logo">
+
+    <!-- Buttons Go Here -->
+    <div id="buttonDivId">
+        <button type="button" onclick="location.href='./login_page.html'">Sign Out</button>
+        <!-- Need to know what profile button does...
+        I made it go to the edit page... or do we want the button to take the user to another page 
+        that shows user in a table their info and from their give the option to take the user to edit
+        their account? -->
+        <button type="button" onclick="location.href='./edit_account.html'">Profile</button>
+    </div>
+
+    <!-- Home Page Welcome Title -->
+    <h1 class="center">Home Page</h1>
+
+    <hr>
+
+    <!-- Results of Matches Table goes here -->
+    <!-- Need to figure best way to populate table with results form queries -->
+    <div id="resultsId" class="center">
+        <table id="resultMatchesTableId" class="resultsTable">
+            <tr>
+                <th>Role</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Field</th>
+                <th>Major</th>
+                <th>Age</th>
+                <th>Hobby</th>
+                <th>Hobby</th>
+                <th>Hobby</th>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
