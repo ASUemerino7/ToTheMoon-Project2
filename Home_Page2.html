@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,100 +7,163 @@
     <title>Home Page</title>
     <!-- Style Sheet for Home Page -->
     <style>
-        .center
-        {
-            margin:             auto;
-            display:            table;
+        .center {
+            margin: auto;
+            display: table;
         }
 
-        .resultsTable
-        {
-            font-family:        'Lucida Sans Unicode', Elephant;
-            font-weight:        bold;
-            border-collapse:    collapse;
+        #resultsId {
+            width: 95%;
+
         }
 
-        .resultsTable th 
-        {
-            border:             1px solid #ec9d9d;
-            padding-left:       2em;
-            padding-right:      2em;
-            color:              #6894cc
+        #logoId {
+            float: left;
+            clear: both;
         }
 
-        h1
-        {
-            font-family:        'Lucida Sans Unicode', Elephant;
-            color:              #6894cc
+        .resultsTable {
+            
+            font-family: 'Lucida Sans Unicode', Elephant;
+            font-size: 30px;
+            font-weight: bold;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        body
-        {
-            background-color:  #d2d4bc;
-            font-size:          20px;
+        .resultsTable th {
+            
+            padding-left: 2em;
+            padding-right: 2em;
+            color: #6894cc;
+           margin-bottom: 2em;
+            
         }
 
-        hr
-        {
-            width:              85%;
-            color:              #b79ab0
+        tr.inserted {
+            padding-left: 2em;
+            padding-right: 2em;
+            color: #6894cc;
+            border: 0px solid black;
+            margin-bottom: 10px;
+            font-size: 25px;
         }
 
-        button
-        {
+        hr {
+            clear: both;
+        }
+
+        h1 {
+            
+            font-family: 'Lucida Sans Unicode', Elephant;
+            color: #6894cc
+        }
+
+        #userNameDivId {
+            float: left;
+            clear: both;
+        }
+
+        body {
+            background-color: #d2d4bc;
+            font-size: 20px;
+        }
+
+        hr {
+            width: 85%;
+            color: #b79ab0
+        }
+
+        button {
             background-color: #6894cc;
-            width:              6.0em;
-            color:            white;
-            padding:            12px;
-            margin:             5px;
-            border:             none;
-            cursor:             pointer;
-            font-size:          0.9em;
+            width: 6.0em;
+            color: white;
+            padding: 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
         }
 
-        #buttonDivId
-        {
-            float:              right;
-
+        #buttonDivId {
+            float: right;
         }
     </style>
 </head>
 <body>
     <!-- Logo Goes Here -->
-    <img src="./mentor_shiplogo.png" alt="Mentor Ship Logo">
+    <img id="logoId" src="./mentor_shiplogo.png" alt="Mentor Ship Logo">
 
     <!-- Buttons Go Here -->
     <div id="buttonDivId">
         <button type="button" onclick="location.href='./login_page.html'">Sign Out</button>
         <!-- Need to know what profile button does...
-        I made it go to the edit page... or do we want the button to take the user to another page 
+        I made it go to the edit page... or do we want the button to take the user to another page
         that shows user in a table their info and from their give the option to take the user to edit
         their account? -->
         <button type="button" onclick="location.href='./edit_account.html'">Profile</button>
     </div>
 
     <!-- Home Page Welcome Title -->
-    <h1 class="center">Home Page</h1>
-
+    <div id="userNameDivId">
+    <h1 id="userNameId" class="center">*Placeholder* User Name goes here</h1>
+    </div>
     <hr>
 
     <!-- Results of Matches Table goes here -->
     <!-- Need to figure best way to populate table with results form queries -->
+    <!-- I'm thinking best way would be to store results from queries into their variables/a data structure (array)
+         and then add rows to the table in a loop for how many matches are returned from the query-->
     <div id="resultsId" class="center">
         <table id="resultMatchesTableId" class="resultsTable">
-            <tr>
-                <th>Role</th>
+        <tr style="border: 1px solid #ec9d9d">
                 <th>Name</th>
                 <th>Location</th>
-                <th>Field</th>
                 <th>Major</th>
-                <th>Age</th>
-                <th>Hobby</th>
-                <th>Hobby</th>
-                <th>Hobby</th>
+
             </tr>
         </table>
     </div>
 
+
+
 </body>
+<script type="text/javascript">
+
+    
+
+    window.onload = function loadMain() {
+        var sqlStmt = "SELECT * FROM Mentors ";
+        var whereClause1 = ""//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
+        //that pulls current user info (taken from the login page)
+        var sqlStmt1 = sqlStmt + whereClause1;
+        //sqlStmt = sqlStmt + whereClause;
+        MySql.Execute( //execute allows any data manipulation (update, delete, insert)
+            "107.180.1.16",
+            "13redo",
+            "redo13",
+            "13redo",
+            sqlStmt1, //sql statement
+            function (data) { //callback function - argument in function is to get access to the data
+                console.log(sqlStmt1)
+                console.log(data.Result)
+                for (var i = 0; i < data.Result.length; i++) {
+
+                    document.getElementById('resultMatchesTableId').innerHTML +=
+                        "<tr class='inserted'>" +                  
+                        "<th><a>" + data.Result[i].name + "</a></th>" +
+                        "<th>" + data.Result[i].location + "</th>" +
+                        "<th>" + data.Result[i].major + "</th>" + "<br></br>"
+
+                        "</tr>";
+
+                }
+            });
+        // document.getElementByID('dbbutton').disable = true;
+    };
+
+</script>
+<script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="dbConnectTest.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 </html>
