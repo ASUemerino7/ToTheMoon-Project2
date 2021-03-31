@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Login Page</title>
 
     <style>
         body {
@@ -66,11 +66,9 @@
 <script type="text/javascript">
     function logIn(){
         console.log("button is clicked")
-        var username = document.getElementById("loginInputId").value;
-        var password = document.getElementById("passwordInputId").value;
-        var sqlStmt = "SELECT * FROM Users";
-        // var whereClause1 = "WHERE age = 27";
-        // var sqlStmt1 = sqlStmt + whereClause1
+        var localusername = document.getElementById("loginInputId").value;
+        var localpassword = document.getElementById("passwordInputId").value;
+        var sqlStmt = "SELECT * FROM Users";      
         MySql.Execute(
             "107.180.1.16",
             "13redo",
@@ -80,16 +78,22 @@
             function(data) {
                 console.log(sqlStmt);
                 console.log("DataBase Connected!");
-                console.log(username);
-                console.log(password);   
+                console.log(localusername);
+                console.log(localpassword);   
                 
-                // for (var i=0; i<data.length; i++)
-                // {
-                //     if (username == )
-                // }
+                var credentialsTrue = false;
+                for (var i=0; i<data.Result.length; i++)
+                {
+                    if (localusername == data.Result[i].username && localpassword == data.Result[i].password) {
+                        credentialsTrue = true;
+                        console.log("Login successful");
+                        localStorage.setItem("user",data.Result[i].username);
+                        console.log(localStorage.getItem("user"));                        
+                        // missing how to link to the Home page. 
+                    }
+                    // Need to add else statement
             }
-        )
-    };
+    })};
 </script>
 <script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
 </html>
