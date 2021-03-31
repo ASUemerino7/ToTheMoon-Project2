@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+
+    <style>
+        body {
+            background-color: #d2d4bc;
+            font-family: 'Lucida Sans Unicode', Elephant;
+            font-size: 20px;
+        }
+
+        .center
+        {
+            text-align: center;
+            float: none;
+            clear: both;
+        }
+
+        #signUpId {
+            color: #ec9d9d;
+        }
+
+        input[type=text], input[type=password] {
+            width: 25%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #b79ab0;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: black;
+        }
+
+        button {
+            background-color: #6894cc;
+            width: 25%;
+            color: white;
+            padding: 10px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center"><img src="./mentor_shiplogo.png" alt="Mentor-Ship Logo"></div>
+
+    <div class="center">
+        <form id="loginFormId">
+            <div><input id="loginInputId" type="text" placeholder="Username or Email" required></div>   
+            <div><input id="passwordInputId" placeholder="Password" type="password" required></div>
+            <div><button id=loginbuttonId type="button" onclick="logIn()">Log In</button></div>
+        </form>
+    </div>
+
+    <div class="center" >
+        <div id="signUpId">Don't have an Account? <a href="./create_account.html"> <span> Sign Up!</span></a></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function logIn(){
+        console.log("button is clicked")
+        var username = document.getElementById("loginInputId").value;
+        var password = document.getElementById("passwordInputId").value;
+        var sqlStmt = "SELECT * FROM Users";
+        // var whereClause1 = "WHERE age = 27";
+        // var sqlStmt1 = sqlStmt + whereClause1
+        MySql.Execute(
+            "107.180.1.16",
+            "13redo",
+            "redo13",
+            "13redo",
+            sqlStmt,  
+            function(data) {
+                console.log(sqlStmt);
+                console.log("DataBase Connected!");
+                console.log(username);
+                console.log(password);   
+                
+                // for (var i=0; i<data.length; i++)
+                // {
+                //     if (username == )
+                // }
+            }
+        )
+    };
+</script>
+<script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
+</html>
