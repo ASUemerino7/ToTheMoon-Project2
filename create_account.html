@@ -1,11 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentor-Ship</title>
-    <link rel="stylesheet" href="mentorShip_style.css">
+    <title>Account Creation</title>
 
     <style>
         h1 {
@@ -32,17 +31,18 @@
         }
 
         input[type=text], input[type=password] {
-            width: 75%;
+            width: 100%;
             margin: 8px 0;
             padding: 12px 20px;
             display: inline-block;
             border: 2px solid #b79ab0;
             box-sizing: border-box;
         }
-        select {
+
+        /* select {
             float: left;
             clear: left;
-        }
+        } */
     </style>
 
     <script type="text/javascript">
@@ -115,27 +115,26 @@
 
         <form id="inputForm" onsubmit="submitForm()">
             <div class="userPass">
-                <label><strong>Username: </strong></label>
-                <input type="text" placeholder="Enter Username" id="usernameId" required>
+                <div><label><strong>Username: </strong></label></div>
+                <div><input type="text" placeholder="Enter Username" id="usernameId" required></div>
 
-                <label><strong>Password: </strong></label>
-                <input type="text" placeholder="Enter Password" id="passwordId" required>
+                <div><label><strong>Password: </strong></label></div>
+                <div><input type="text" placeholder="Enter Password" id="passwordId" required></div></div>
 
-                <label><strong>Name: </strong></label>
-                <input type="text" placeholder="Enter your name" id="nameId" required>
+                <div><label><strong>Name: </strong></label></div>
+                <div><input type="text" placeholder="Enter your name" id="nameId" required></div>
 
-                <label><strong>Email Address: </strong></label>
-                <input type="text" placeholder="Enter your email address" id="emailId" required>
+                <div><label><strong>Email Address: </strong></label></div>
+                <div><input type="text" placeholder="Enter your email address" id="emailId" required></div>
 
-                <label><strong>Age: </strong></label>
-                <input type="text" placeholder="Enter age in years" id="ageId" required>
+                <div><label><strong>Age: </strong></label></div>
+                <div><input type="text" placeholder="Enter age in years" id="ageId" required></div>
 
-                <label><strong>City: </strong></label>
-                <input type="text" placeholder="Enter City" id="cityId" required>
+                <div><label><strong>City: </strong></label></div>
+                <div><input type="text" placeholder="Enter City" id="cityId" required></div>
 
-
-                <label><strong>State: </strong></label>
-                <select id="stateId">
+                <div><label><strong>State: </strong></label></div>
+                <div><select id="stateId">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -187,10 +186,10 @@
                     <option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
-                </select>
+                </select></div>
                 <br />
-                <label><strong>Are you a mentor or a mentee?</strong></label>
-                <select id="mentorMenteeId" onchange="mentorOrMentee()">
+                <div><label><strong>Are you a mentor or a mentee?</strong></label></div>
+                <div><select id="mentorMenteeId" onchange="mentorOrMentee()"></div>
                     <option value="Blank"></option>
                     <option value="Mentor">Mentor</option>
                     <option value="Mentee">Mentee</option>
