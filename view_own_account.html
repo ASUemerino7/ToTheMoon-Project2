@@ -1,106 +1,157 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Profile</title>
+    <title>Mentor-Ship Edit Account</title>
 
     <style>
-        .center {
-            margin:             auto;
-            display:            table;        
+        h1 {
+            font-family: 'Lucida Sans Unicode', Elephant;
+            color: #6894cc;
         }
 
-        #logoId {
-            float:              left;
-            clear:              both;
+        label {
+            color: #ec9d9d;
         }
-        
+
+        p {
+            color: #6894cc;
+        }
+
         body {
             background-color: #d2d4bc;
-            font-size:          20px;
-        }
-
-        hr {
-            clear:              both;
         }
 
         button {
-            background-color:   #6894cc;
-            width:              6.0em;
-            color:              white;
-            padding:            12px;
-            margin:             5px;
-            border:             none;
-            cursor:             pointer;
-            font-size:          0.9em;
-        }
-
-        #buttonDivId {
+            font-family: 'Lucida Sans Unicode', Elephant;
+            background-color: #6894cc;
+            width: 15%;
+            color: black;
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
             float: right;
+            clear: both;
         }
 
-        h1 {
-            font-family:        'Lucida Sans Unicode', Elephant;
-            color:              #6894cc;
-        }
-
-        #userNameDivId {
-            float:              left;
-            clear:              both;
-        }
-
-        .resultsTable {
-            font-family:        'Lucida Sans Unicode', Elephant;
-            font-size:          15px;
-            font-weight:        bold;
-            border-collapse:    collapse;
-            width:              100%;
-        }
-
-        .resultsTable th {
-            padding-left:       2em;
-            padding-right:      2em;
-            color:              #6894cc;
-            margin-bottom:      2em; 
+        input[type=text], input[type=password] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid #b79ab0;
+            box-sizing: border-box;
         }
     </style>
+    <script type="text/javascript">
+
+        //function for putting all form values into variables
+        function populateInfo() {
+
+            var username = document.getElementById('usernameId').value;
+            var password = document.getElementById('passwordId').value;
+            var name = document.getElementById('nameId').value;
+            var email = document.getElementById('emailId').value;
+            var age = document.getElementById('ageId').value;
+            var location = document.getElementById('cityId').value + ", " + document.getElementById('stateId').value;
+            var role = document.getElementById('mentorMenteeId').value;
+            var major = document.getElementById('majorId').value;
+            var hobby1 = document.getElementById('hobbyOneId').value;
+            var hobby2 = document.getElementById('hobbyTwoId').value;
+            var hobby3 = document.getElementById('hobbyThreeId').value;
+
+        }
+
+    </script>
 </head>
 <body>
-    <!--Logo-->
-    <img id="logoId" src="./mentor_shiplogo.png" alt="Mentor Ship Logo">
+    <div class="header">
+        <img style="display: inline-block" src="mentor_shiplogo.png" alt="Mentor-Ship Logo">
+        <button id="editProfileId" onclick="window.location.replace('edit_account.html')">Edit Profile</button>
+        <h1 id="displayNameId">Welcome, </h1>
 
-    <!--Buttons Go here-->
-    <div id="buttonDivId">
-        <button type="button" onclick="location.href='./Home_Page.html'">Home</button>
-        <button type="button" onclick="location.href='./edit_account.html'">Edit</button>
+
+
+        <form id="inputForm" onsubmit="submitForm()">
+            <div class="userPass">
+                <label><strong>Username: </strong></label>
+                <p id="usernameId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Password: </strong></label>
+                <p id="passwordId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Name: </strong></label>
+                <p id="nameId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Email Address: </strong></label>
+                <p id="emailId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Age: </strong></label>
+                <p id="ageId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Location: </strong></label>
+                <p id="locationId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Role:</strong></label>
+                <p id="roleId"></p>
+
+
+                <label style="margin-top: 10px;"><strong>Major:</strong></label>
+                <p id="majorId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Field: </strong></label>
+                <p id="fieldId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+
+                <label><strong>Hobbies: </strong></label>
+                <p id="hobbyOneId"></p>
+                <p id="hobbyTwoId"></p>
+                <p id="hobbyThreeId"></p>
+
+                <div id="changeId"></div>
+
+            </div>
+        </form>
     </div>
-
-    <!--View Profile-->
-    <div id="userNameDivId">
-        <h1 id="userNameId" class="center">*Placeholder* User Name Goes Here</h1>
-    </div>
-    <hr>
-
-    <div id="resultsId" class="center">
-        <table id="resultViewProfileTableId" class="resultsTable">
-            <tr>
-                <th>UserName</th>
-                <th>Password</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Major</th>
-                <th>Field</th>
-                <th>Hobby</th>                
-                <th>Hobby</th>                
-                <th>Hobby</th>                
-            </tr>
-        </table>
-    </div>
-
 </body>
+<script type="text/javascript">
+
+
+
+    window.onload = function loadMain() {
+
+        //make variable that pulls username from login page
+        //**USE THIS USERNAME TO POPULATE FIELDS**
+        var localuser = localStorage.getItem("user");
+        document.getElementById("displayNameId").innerHTML += localuser;
+
+        var sqlStmt = "SELECT * FROM Mentors ";
+        var whereClause1 = ""//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
+        //that pulls current user info (taken from the login page)
+        var sqlStmt1 = sqlStmt + whereClause1;
+        //sqlStmt = sqlStmt + whereClause;
+        MySql.Execute( //execute allows any data manipulation (update, delete, insert)
+            "107.180.1.16",
+            "13redo",
+            "redo13",
+            "13redo",
+            sqlStmt1, //sql statement
+            function (data) { //callback function - argument in function is to get access to the data
+                console.log(sqlStmt1)
+                console.log(data.Result)
+                for (var i = 0; i < data.Result.length; i++) {
+
+      
+
+                }
+            });
+        // document.getElementByID('dbbutton').disable = true;
+    };
+
+</script>
+<script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="dbConnectTest.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 </html>

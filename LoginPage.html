@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +13,7 @@
             font-size: 20px;
         }
 
-        .center
-        {
+        .center {
             text-align: center;
             float: none;
             clear: both;
@@ -52,48 +51,50 @@
 
     <div class="center">
         <form id="loginFormId">
-            <div><input id="loginInputId" type="text" placeholder="Username or Email" required></div>   
+            <div><input id="loginInputId" type="text" placeholder="Username or Email" required></div>
             <div><input id="passwordInputId" placeholder="Password" type="password" required></div>
             <div><button id=loginbuttonId type="button" onclick="logIn()">Log In</button></div>
         </form>
     </div>
 
-    <div class="center" >
+    <div class="center">
         <div id="signUpId">Don't have an Account? <a href="./create_account.html"> <span> Sign Up!</span></a></div>
     </div>
 </body>
 
+
+</html>
 <script type="text/javascript">
-    function logIn(){
+    function logIn() {
         console.log("button is clicked")
         var localusername = document.getElementById("loginInputId").value;
         var localpassword = document.getElementById("passwordInputId").value;
-        var sqlStmt = "SELECT * FROM Users";      
+        var sqlStmt = "SELECT * FROM Users";
         MySql.Execute(
             "107.180.1.16",
             "13redo",
             "redo13",
             "13redo",
-            sqlStmt,  
-            function(data) {
+            sqlStmt,
+            function (data) {
                 console.log(sqlStmt);
                 console.log("DataBase Connected!");
                 console.log(localusername);
-                console.log(localpassword);   
-                
+                console.log(localpassword);
+
                 var credentialsTrue = false;
-                for (var i=0; i<data.Result.length; i++)
-                {
+                for (var i = 0; i < data.Result.length; i++) {
                     if (localusername == data.Result[i].username && localpassword == data.Result[i].password) {
                         credentialsTrue = true;
                         console.log("Login successful");
-                        localStorage.setItem("user",data.Result[i].username);
-                        console.log(localStorage.getItem("user"));                        
-                        // missing how to link to the Home page. 
+                        localStorage.setItem("user", data.Result[i].username);
+                        console.log(localStorage.getItem("user"));
+                        // missing how to link to the Home page.
+                        window.location.replace("Home_Page.html");
                     }
                     // Need to add else statement
-            }
-    })};
+                }
+            })
+    };
 </script>
 <script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
-</html>
