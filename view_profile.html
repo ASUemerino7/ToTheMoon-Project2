@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+
+    <style>
+        .center {
+            margin:             auto;
+            display:            table;        
+        }
+
+        #logoId {
+            float:              left;
+            clear:              both;
+        }
+        
+        body {
+            background-color: #d2d4bc;
+            font-size:          20px;
+        }
+
+        hr {
+            clear:              both;
+        }
+
+        button {
+            background-color:   #6894cc;
+            width:              6.0em;
+            color:              white;
+            padding:            12px;
+            margin:             5px;
+            border:             none;
+            cursor:             pointer;
+            font-size:          0.9em;
+        }
+
+        #buttonDivId {
+            float: right;
+        }
+
+        h1 {
+            font-family:        'Lucida Sans Unicode', Elephant;
+            color:              #6894cc;
+        }
+
+        #userNameDivId {
+            float:              left;
+            clear:              both;
+        }
+
+        .resultsTable {
+            font-family:        'Lucida Sans Unicode', Elephant;
+            font-size:          15px;
+            font-weight:        bold;
+            border-collapse:    collapse;
+            width:              100%;
+        }
+
+        .resultsTable th {
+            padding-left:       2em;
+            padding-right:      2em;
+            color:              #6894cc;
+            margin-bottom:      2em; 
+        }
+    </style>
+</head>
+<body>
+    <!--Logo-->
+    <img id="logoId" src="./mentor_shiplogo.png" alt="Mentor Ship Logo">
+
+    <!--Buttons Go here-->
+    <div id="buttonDivId">
+        <button type="button" onclick="location.href='./Home_Page.html'">Home</button>
+        <button type="button" onclick="location.href='./edit_account.html'">Edit</button>
+    </div>
+
+    <!--View Profile-->
+    <div id="userNameDivId">
+        <h1 id="userNameId" class="center">*Placeholder* User Name Goes Here</h1>
+    </div>
+    <hr>
+
+    <div id="resultsId" class="center">
+        <table id="resultViewProfileTableId" class="resultsTable">
+            <tr>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Major</th>
+                <th>Field</th>
+                <th>Hobby</th>                
+                <th>Hobby</th>                
+                <th>Hobby</th>                
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
