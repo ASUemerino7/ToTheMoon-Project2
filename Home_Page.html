@@ -148,7 +148,7 @@
         var localmajor = localStorage.getItem("major");
         document.getElementById("userNameId").innerHTML += localuser;
         var sqlStmt = "SELECT * FROM Mentors ";
-        var whereClause1 = "WHERE major = " + localmajor;//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
+        var whereClause1 = "WHERE major =  \'"+ localmajor + "\'";//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
         //that pulls current user info (taken from the login page)
         var sqlStmt1 = sqlStmt + whereClause1;
         //sqlStmt = sqlStmt + whereClause;

@@ -52,12 +52,12 @@
         function populateInfo() {
 
             var username = document.getElementById('usernameId').value;
-            var password = document.getElementById('passwordId').value;
+            //var password = document.getElementById('passwordId').value;
             var name = document.getElementById('nameId').value;
             var email = document.getElementById('emailId').value;
             var age = document.getElementById('ageId').value;
             var location = document.getElementById('cityId').value + ", " + document.getElementById('stateId').value;
-            var role = document.getElementById('mentorMenteeId').value;
+           // var role = document.getElementById('mentorMenteeId').value;
             var major = document.getElementById('majorId').value;
             var hobby1 = document.getElementById('hobbyOneId').value;
             var hobby2 = document.getElementById('hobbyTwoId').value;
@@ -80,8 +80,8 @@
                 <label><strong>Username: </strong></label>
                 <p id="usernameId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
 
-                <label><strong>Password: </strong></label>
-                <p id="passwordId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
+                <!--<label><strong>Password: </strong></label>
+                //<p id="passwordId"> PLACE RESULTS HERE USING GETELEMENTBYID IN JS</p> -->
 
                 <label><strong>Name: </strong></label>
                 <p id="nameId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
@@ -95,14 +95,14 @@
                 <label><strong>Location: </strong></label>
                 <p id="locationId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
 
-                <label><strong>Role:</strong></label>
-                <p id="roleId"></p>
+               <!--  <label><strong>Role:</strong></label>
+                <p id="roleId"></p> -->
 
 
                 <label style="margin-top: 10px;"><strong>Major:</strong></label>
                 <p id="majorId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
 
-                <label><strong>Field: </strong></label>
+                <label><strong>Field Of Interest: </strong></label>
                 <p id="fieldId"><!--PLACE RESULTS HERE USING GETELEMENTBYID IN JS--></p>
 
                 <label><strong>Hobbies: </strong></label>
@@ -127,8 +127,8 @@
         var localuser = localStorage.getItem("user");
         document.getElementById("displayNameId").innerHTML += localuser;
 
-        var sqlStmt = "SELECT * FROM Mentors ";
-        var whereClause1 = ""//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
+        var sqlStmt = "SELECT * FROM Mentees ";
+        var whereClause1 = "WHERE username =  \'"+ localuser + "\'";    //"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
         //that pulls current user info (taken from the login page)
         var sqlStmt1 = sqlStmt + whereClause1;
         //sqlStmt = sqlStmt + whereClause;
@@ -142,7 +142,16 @@
                 console.log(sqlStmt1)
                 console.log(data.Result)
                 for (var i = 0; i < data.Result.length; i++) {
-
+                    document.getElementById('usernameId').innerHTML += data.Result[i].username
+                    document.getElementById('nameId').innerHTML += data.Result[i].name
+                    document.getElementById('emailId').innerHTML += data.Result[i].email
+                    document.getElementById('ageId').innerHTML += data.Result[i].age
+                    document.getElementById('locationId').innerHTML += data.Result[i].location
+                    document.getElementById('majorId').innerHTML += data.Result[i].major
+                    document.getElementById('fieldId').innerHTML += data.Result[i].fieldOfInterest
+                    document.getElementById('hobbyOneId').innerHTML += data.Result[i].hobby1
+                    document.getElementById('hobbyTwoId').innerHTML += data.Result[i].hobby2
+                    document.getElementById('hobbyThreeId').innerHTML += data.Result[i].hobby3
       
 
                 }
