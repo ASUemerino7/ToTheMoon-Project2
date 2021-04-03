@@ -69,15 +69,17 @@
         console.log("button is clicked")
         var localusername = document.getElementById("loginInputId").value;
         var localpassword = document.getElementById("passwordInputId").value;
-        var sqlStmt = "SELECT * FROM Users";
+        var sqlStmt = "SELECT * FROM Users u, Mentees m ";
+        var whereClause = "WHERE m.userID = u.userID";
+        var sqlStmt1 = sqlStmt + whereClause
         MySql.Execute(
             "107.180.1.16",
             "13redo",
             "redo13",
             "13redo",
-            sqlStmt,
+            sqlStmt1,
             function (data) {
-                console.log(sqlStmt);
+                console.log(sqlStmt1);
                 console.log("DataBase Connected!");
                 console.log(localusername);
                 console.log(localpassword);
@@ -88,7 +90,9 @@
                         credentialsTrue = true;
                         console.log("Login successful");
                         localStorage.setItem("user", data.Result[i].username);
+                        localStorage.setItem("major", data.Result[i].major);
                         console.log(localStorage.getItem("user"));
+                        console.log(localStorage.getItem("major"));
                         // missing how to link to the Home page.
                         window.location.replace("Home_Page.html");
                     }
