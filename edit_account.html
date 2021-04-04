@@ -202,16 +202,26 @@
 </body>
 <script type="text/javascript">
 
-
+ var username = document.getElementById('usernameId').value;
+            var password = document.getElementById('passwordId').value;
+            var name = document.getElementById('nameId').value;
+            var email = document.getElementById('emailId').value;
+            var age = document.getElementById('ageId').value;
+            var location = document.getElementById('cityId').value + ", " + document.getElementById('stateId').value;
+            var role = document.getElementById('mentorMenteeId').value;
+            var major = document.getElementById('majorId').value;
+            var hobby1 = document.getElementById('hobbyOneId').value;
+            var hobby2 = document.getElementById('hobbyTwoId').value;
+            var hobby3 = document.getElementById('hobbyThreeId').value;
 
     window.onload = function loadMain() {
 
         //make variable that pulls username from login page
         //**USE THIS USERNAME TO POPULATE FIELDS**
         var localuser = localStorage.getItem("user");
-
-        var sqlStmt = "SELECT * FROM Mentors ";
-        var whereClause1 = ""//"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
+        var username = document.getElementById('usernameId').value;
+        var sqlStmt = "UPDATE Mentees set username =  \'"+ username + "\'";
+        var whereClause1 = "WHERE username =  \'"+ localuser + "\'";   //"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
         //that pulls current user info (taken from the login page)
         var sqlStmt1 = sqlStmt + whereClause1;
         //sqlStmt = sqlStmt + whereClause;
@@ -225,7 +235,7 @@
                 console.log(sqlStmt1)
                 console.log(data.Result)
                 for (var i = 0; i < data.Result.length; i++) {
-
+                        console.log(data.Result[i]);
                 
 
                 }
