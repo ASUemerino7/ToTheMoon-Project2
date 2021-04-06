@@ -200,6 +200,7 @@
         </form>
     </div>
 </body>
+</html>
 <script type="text/javascript">
 
  var username = document.getElementById('usernameId').value;
@@ -220,7 +221,8 @@
         //**USE THIS USERNAME TO POPULATE FIELDS**
         var localuser = localStorage.getItem("user");
         var username = document.getElementById('usernameId').value;
-        var sqlStmt = "UPDATE Mentees set username =  \'"+ username + "\'";
+        var sqlStmt = "SELECT * Mentees "
+        //var sqlset = "set username =  \'"+ username + "\'" ;
         var whereClause1 = "WHERE username =  \'"+ localuser + "\'";   //"where major = " + //data.Result[i].major; this needs to be changed to the results of another query
         //that pulls current user info (taken from the login page)
         var sqlStmt1 = sqlStmt + whereClause1;
@@ -247,4 +249,3 @@
 <script src="https://mysqljs.com/mysql.js" type="text/javascript"></script>
 <!-- <script type="text/javascript" src="dbConnectTest.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
-</html>

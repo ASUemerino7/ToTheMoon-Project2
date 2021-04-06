@@ -102,7 +102,7 @@
         I made it go to the edit page... or do we want the button to take the user to another page
         that shows user in a table their info and from their give the option to take the user to edit
         their account? -->
-        <button type="button" onclick="location.href='./edit_account.html'">Profile</button>
+        <button type="button" onclick="location.href='./view_own_account.html'">Profile</button>
     </div>
 
     <!-- Home Page Welcome Title -->
@@ -137,7 +137,7 @@
     function targetUser(user) {
         console.log(user);
         localStorage.setItem("targetUser", user);
-        //window.location.replace("view_account.html");
+        window.location.replace("view_match_profile.html");
     }
 
     window.onload = function loadMain() {
